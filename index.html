@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RHN - Revue en Humanités Numériques</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#c6c6c7",
+                    "surface-dim": "#d9dadb",
+                    "on-secondary": "#ffffff",
+                    "outline": "#747878",
+                    "inverse-surface": "#2e3132",
+                    "secondary": "#006973",
+                    "on-secondary-container": "#006b76",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#0062a2",
+                    "secondary-container": "#71eeff",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#f8f9fa",
+                    "surface": "#f8f9fa",
+                    "primary": "#5d5f5f",
+                    "on-secondary-fixed": "#001f23",
+                    "on-surface": "#191c1d",
+                    "text-primary": "#1A1A1A",
+                    "background": "#f8f9fa",
+                    "surface-tint": "#5d5f5f",
+                    "on-tertiary-fixed-variant": "#00497b",
+                    "on-surface-variant": "#444748",
+                    "surface-container-low": "#f3f4f5",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#c4c7c8",
+                    "secondary-fixed-dim": "#57d7e8",
+                    "inverse-on-surface": "#f0f1f2",
+                    "link-hover": "#004a7c",
+                    "border-subtle": "#E5E7EB",
+                    "on-tertiary-fixed": "#001d35",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary-fixed-dim": "#9dcaff",
+                    "primary-container": "#ffffff",
+                    "on-secondary-fixed-variant": "#004f57",
+                    "tertiary-fixed": "#d1e4ff",
+                    "on-primary-container": "#747676",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "tertiary-container": "#ffffff",
+                    "primary-fixed": "#e2e2e2",
+                    "on-tertiary-container": "#237ac0",
+                    "on-primary-fixed-variant": "#454747",
+                    "on-primary-fixed": "#1a1c1c",
+                    "on-background": "#191c1d",
+                    "text-secondary": "#4A4A4A",
+                    "surface-container": "#edeeef",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary-fixed": "#91f1ff",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "stack-lg": "48px",
+                    "stack-sm": "12px",
+                    "gutter": "24px",
+                    "stack-md": "24px"
+            },
+            "fontFamily": {
+                    "caption": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Source Serif 4"],
+                    "headline-lg": ["Source Serif 4"],
+                    "headline-lg-mobile": ["Source Serif 4"],
+                    "headline-md": ["Source Serif 4"],
+                    "body-md": ["Inter"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "caption": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "30px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .page-transition {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .marginalia {
+            position: sticky;
+            top: 100px;
+        }
+        .poster-card:hover h3 {
+            text-decoration: underline;
+            text-decoration-color: #006973;
+        }
+        @media (max-width: 767px) {
+            .mobile-nav-active {
+                color: #006973 !important;
+                border-top: 2px solid #006973;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-inverse-surface border-b border-subtle dark:border-outline-variant h-16">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-headline-md font-bold text-tertiary">RHN</span>
+<span class="hidden lg:block font-label-lg text-label-lg text-on-surface-variant">Revue en Humanités Numériques</span>
+</div>
+<div class="hidden md:flex items-center gap-stack-md font-label-lg text-label-lg">
+<button class="nav-link text-secondary border-b-2 border-secondary pb-1 hover:text-secondary transition-colors transition-all active:opacity-80" data-nav="accueil" onclick="navTo('accueil')">Accueil</button>
+<button class="nav-link text-on-surface-variant hover:text-secondary transition-colors transition-all active:opacity-80" data-nav="posters" onclick="navTo('posters')">Posters</button>
+<button class="nav-link text-on-surface-variant hover:text-secondary transition-colors transition-all active:opacity-80" data-nav="en-cours" onclick="navTo('en-cours')">En cours</button>
+<button class="nav-link text-on-surface-variant hover:text-secondary transition-colors transition-all active:opacity-80" data-nav="comite" onclick="navTo('comite')">Comité</button>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-lg font-label-lg text-label-lg hover:opacity-90 transition-all active:scale-95 shadow-sm" onclick="navTo('soumettre')">Soumettre</button>
+</div>
+</nav>
+</header>
+<!-- Main Content Canvas -->
+<main class="mt-16 min-h-screen pb-stack-lg">
+<!-- SECTION: Accueil -->
+<section class="content-section max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg" id="accueil">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Marginalia Sidebar -->
+<aside class="hidden md:block md:col-span-3">
+<div class="marginalia flex flex-col gap-stack-md py-4 border-l border-subtle pl-6">
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Éditeur</span>
+<span class="font-body-md text-body-md text-on-surface">Université de Maurice</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest">ISSN</span>
+<span class="font-body-md text-body-md text-on-surface italic">Attribution en cours</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest">Licence</span>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">balance</span>
+<span class="font-caption text-caption">CC BY 4.0 International</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Hero Content -->
+<div class="md:col-span-9 flex flex-col gap-stack-md">
+<div class="flex flex-col gap-stack-sm">
+<div class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full self-start">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+<span class="font-label-md text-label-md">Volume 1 · Numéro 1 · Juin 2026</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-tertiary leading-tight">Revue en Humanités Numériques</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                            Une publication scientifique d'excellence dédiée à l'exploration des méthodes computationnelles appliquées aux sciences humaines et sociales. Un pont entre tradition académique et innovation technologique.
+                        </p>
+</div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter mt-stack-md">
+<div class="bg-surface-container-lowest border border-subtle p-6 rounded-xl flex flex-col items-center justify-center text-center gap-2 group hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary text-3xl">gallery_thumbnail</span>
+<span class="font-display-lg text-headline-lg text-on-surface">4</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Posters publiés</span>
+</div>
+<div class="bg-surface-container-lowest border border-subtle p-6 rounded-xl flex flex-col items-center justify-center text-center gap-2 group hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary text-3xl">pending_actions</span>
+<span class="font-display-lg text-headline-lg text-on-surface">3</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Articles en cours</span>
+</div>
+<div class="bg-surface-container-lowest border border-subtle p-6 rounded-xl flex flex-col items-center justify-center text-center gap-2 group hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary text-3xl">group</span>
+<span class="font-display-lg text-headline-lg text-on-surface">8</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Auteur·e·s</span>
+</div>
+</div>
+<div class="mt-stack-lg border-t border-subtle pt-stack-md">
+<div class="flex justify-between items-end mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Dernières publications</h2>
+<button class="text-tertiary font-label-lg text-label-lg flex items-center gap-1 hover:underline" onclick="navTo('posters')">
+                                Voir tous les posters <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<!-- Featured Card 1 -->
+<div class="poster-card bg-surface-container-lowest border border-subtle p-6 rounded-xl flex flex-col gap-4 cursor-pointer">
+<div class="w-full aspect-[3/1] bg-surface-container-high rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-80" data-alt="A sophisticated digital cartography interface showing a map of a tropical island with layered colonial heritage markers in teal and deep blue. The visual style is crisp, clean, and academic, featuring delicate white grid lines and precise data points across the landscape, captured in soft morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvTiZnDXPxn-xrhlv7anzvCtF2s9RfQ8brS7bm21cWKy04E4P5JH8NhKCx7yY3MejoxnTLeM7dGcO_xHRmYo-WFIQPoJNhxTP3fZLUMoHDN1dP3p84gjIXabY8P8wuVorkICFYcjlDQJvirAwTzJ9UqFGmrIjpWdQmz7x6D3SOCC48Aep2QJsw0RHtOkXufjIsg03SONtKfm1RxW7KLiMI0DtOH7vjxYvSQuYzWWx9Mxc6kgfxbe8COa7avHnH0uikrfchKrwd6w"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/10">
+<span class="bg-surface/90 text-on-surface px-3 py-1 rounded text-caption font-label-md">POSTER A3 · PDF</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-2">Cartographie numérique du patrimoine colonial à Maurice : une approche SIG</h3>
+<div class="flex flex-col gap-1">
+<p class="font-label-md text-label-md text-secondary">Amara Boodhoo, Nisha Ramnarain</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-surface px-2 py-0.5 rounded-full border border-secondary text-secondary font-label-md text-[10px] uppercase">SIG</span>
+<span class="bg-surface px-2 py-0.5 rounded-full border border-secondary text-secondary font-label-md text-[10px] uppercase">Patrimoine</span>
+</div>
+</div>
+</div>
+<!-- Featured Card 2 -->
+<div class="poster-card bg-surface-container-lowest border border-subtle p-6 rounded-xl flex flex-col gap-4 cursor-pointer">
+<div class="w-full aspect-[3/1] bg-surface-container-high rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-80" data-alt="Close-up of a high-resolution digital text analysis visualization showing clusters of words in various sizes, predominantly in shades of deep blue and turquoise. The background is a clean white, suggesting a high-end scholarly interface. Floating node connections represent linguistic relationships in a modern, minimalist scientific style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDzYQjU0oX-Igcaa7Pv-Ar0IfTtefhxg3624z4upwOvNBqzGtzY-8K-Z6QlUQt25nIehuyKY_Wa4SvIJUKeLDLeXDKrfyupfMmL3mCttobcaoXi4kf26IzLRcBDCRL6O_Cty2DJ5CHx8FGf6LwpEztQMwd1_HLM6V_6vI8dCFFzjJtrPszLz_CI8R-hBvtsAoWBcaM53qu-gmSHShODhmztYM-YyLqyWhUsEjCVfgzv-fIfI-KK49JWBTRDfPLnxmr0pOk3iDbKw"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/10">
+<span class="bg-surface/90 text-on-surface px-3 py-1 rounded text-caption font-label-md">POSTER A3 · PDF</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-2">Analyse de sentiment des commentaires créoles sur les réseaux sociaux</h3>
+<div class="flex flex-col gap-1">
+<p class="font-label-md text-label-md text-secondary">Kiran Gujadhur</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-surface px-2 py-0.5 rounded-full border border-secondary text-secondary font-label-md text-[10px] uppercase">NLP</span>
+<span class="bg-surface px-2 py-0.5 rounded-full border border-secondary text-secondary font-label-md text-[10px] uppercase">Créole</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: Posters (Grid View) -->
+<section class="content-section hidden max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg" id="posters">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-md">Collection des Posters Scientifiques</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-gutter">
+<!-- Poster 1 -->
+<article class="bg-surface-container-lowest border border-subtle p-8 rounded-xl flex flex-col gap-4 hover:border-tertiary transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-primary uppercase tracking-tighter">Article ID: RHN-P-01</span>
+<span class="bg-surface px-3 py-1 rounded-full text-[11px] font-bold border border-outline-variant text-on-surface-variant">VOL. 1</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Cartographie numérique du patrimoine colonial à Maurice : une approche SIG</h3>
+<p class="font-label-lg text-label-lg text-secondary">Amara Boodhoo, Nisha Ramnarain</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Ce poster présente une démarche de géolocalisation et de visualisation cartographique de sites patrimoniaux hérités de la période coloniale à Maurice, à travers l'utilisation de QGIS et des données OpenStreetMap.</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">SIG</span>
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">Maurice</span>
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">Patrimoine</span>
+</div>
+<button class="mt-6 flex items-center justify-center gap-2 bg-tertiary text-on-tertiary w-full py-3 rounded-lg font-label-lg text-label-lg hover:bg-link-hover transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Télécharger le PDF (A3)
+                    </button>
+</article>
+<!-- Poster 2 -->
+<article class="bg-surface-container-lowest border border-subtle p-8 rounded-xl flex flex-col gap-4 hover:border-tertiary transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-primary uppercase tracking-tighter">Article ID: RHN-P-02</span>
+<span class="bg-surface px-3 py-1 rounded-full text-[11px] font-bold border border-outline-variant text-on-surface-variant">VOL. 1</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Analyse de sentiment des commentaires créoles sur les réseaux sociaux</h3>
+<p class="font-label-lg text-label-lg text-secondary">Kiran Gujadhur</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Exploration des méthodes de traitement du langage naturel appliquées au créole mauricien. Le poster détaille la constitution d'un corpus de 2 000 commentaires Facebook.</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">NLP</span>
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">Sentiment</span>
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">Créole</span>
+</div>
+<button class="mt-6 flex items-center justify-center gap-2 bg-tertiary text-on-tertiary w-full py-3 rounded-lg font-label-lg text-label-lg hover:bg-link-hover transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Télécharger le PDF (A3)
+                    </button>
+</article>
+<!-- Poster 3 -->
+<article class="bg-surface-container-lowest border border-subtle p-8 rounded-xl flex flex-col gap-4 hover:border-tertiary transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-primary uppercase tracking-tighter">Article ID: RHN-P-03</span>
+<span class="bg-surface px-3 py-1 rounded-full text-[11px] font-bold border border-outline-variant text-on-surface-variant">VOL. 1</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Récit visuel et mémoire coloniale : le cas du Lac Anosy à Antananarivo</h3>
+<p class="font-label-lg text-label-lg text-secondary">Potata R.</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Analyse du lac Anosy comme palimpseste historique en combinant storytelling visuel et recherche archivistique à Madagascar.</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">Storytelling</span>
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">Madagascar</span>
+</div>
+<button class="mt-6 flex items-center justify-center gap-2 bg-tertiary text-on-tertiary w-full py-3 rounded-lg font-label-lg text-label-lg hover:bg-link-hover transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Télécharger le PDF (A3)
+                    </button>
+</article>
+<!-- Poster 4 -->
+<article class="bg-surface-container-lowest border border-subtle p-8 rounded-xl flex flex-col gap-4 hover:border-tertiary transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-md text-label-md text-primary uppercase tracking-tighter">Article ID: RHN-P-04</span>
+<span class="bg-surface px-3 py-1 rounded-full text-[11px] font-bold border border-outline-variant text-on-surface-variant">VOL. 1</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Humanités numériques et médiation culturelle : VR dans les musées</h3>
+<p class="font-label-lg text-label-lg text-secondary">Priya Seetohul, Dev Luchmun</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Ce poster interroge l'apport de la VR dans les dispositifs de médiation muséale, à partir d'une étude de cas conduite à l'Institut Français de Maurice.</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">VR</span>
+<span class="px-3 py-1 bg-surface rounded-full text-caption font-label-md text-on-surface-variant border border-subtle">Musée</span>
+</div>
+<button class="mt-6 flex items-center justify-center gap-2 bg-tertiary text-on-tertiary w-full py-3 rounded-lg font-label-lg text-label-lg hover:bg-link-hover transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Télécharger le PDF (A3)
+                    </button>
+</article>
+</div>
+</section>
+<!-- SECTION: En cours (WIP) -->
+<section class="content-section hidden max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg" id="en-cours">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-md">Travaux en cours · Work in Progress</h2>
+<div class="space-y-stack-md">
+<!-- WIP 1 -->
+<div class="bg-surface-container-lowest border-l-4 border-secondary p-8 rounded-r-xl shadow-sm border border-subtle">
+<div class="flex justify-between items-center mb-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-caption font-label-md">Rédaction en cours</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Publication prévue : Numéro 2</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Édition numérique de sources historiques mauriciennes : enjeux et méthodes TEI</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Cet article explore l'application du standard TEI-XML à l'encodage de documents d'archives du XIXe siècle conservés aux Archives Nationales de Maurice.</p>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-caption font-label-md">
+<span>Avancement</span>
+<span>60%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 60%"></div>
+</div>
+</div>
+</div>
+<!-- WIP 2 -->
+<div class="bg-surface-container-lowest border-l-4 border-secondary p-8 rounded-r-xl shadow-sm border border-subtle">
+<div class="flex justify-between items-center mb-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-caption font-label-md">Collecte de données</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Publication prévue : Numéro 2</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Représentation des femmes dans la presse mauricienne : analyse computationnelle</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">À partir d'un corpus de 5 000 articles, cette étude mobilise des outils d'analyse textuelle pour mesurer la visibilité des femmes en politique.</p>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-caption font-label-md">
+<span>Avancement</span>
+<span>30%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 30%"></div>
+</div>
+</div>
+</div>
+<!-- WIP 3 -->
+<div class="bg-surface-container-lowest border-l-4 border-secondary p-8 rounded-r-xl shadow-sm border border-subtle">
+<div class="flex justify-between items-center mb-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-caption font-label-md">Phase de révision</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Publication prévue : Numéro 1 (supplément)</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Fabriquer et transmettre : la fabrication numérique comme outil pédagogique</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Retour d'expérience sur l'intégration d'outils de fabrication numérique (découpe laser, impression 3D) dans des ateliers pédagogiques.</p>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between text-caption font-label-md">
+<span>Avancement</span>
+<span>80%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 80%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: Comité -->
+<section class="content-section hidden max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg" id="comite">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-md">Comité de Rédaction</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-lg">
+<div class="flex items-center gap-4 bg-surface-container-lowest p-6 border border-subtle rounded-xl">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold">AB</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Amara Boodhoo</h4>
+<p class="font-caption text-caption text-secondary">Directrice de publication</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-6 border border-subtle rounded-xl">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold">KG</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Kiran Gujadhur</h4>
+<p class="font-caption text-caption text-secondary">Rédacteur en chef</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-6 border border-subtle rounded-xl">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold">NR</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Nisha Ramnarain</h4>
+<p class="font-caption text-caption text-secondary">Coordinatrice éditoriale</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-6 border border-subtle rounded-xl">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold">PR</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Potata R.</h4>
+<p class="font-caption text-caption text-secondary">Responsable numérique</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-6 border border-subtle rounded-xl">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold">PS</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Priya Seetohul</h4>
+<p class="font-caption text-caption text-secondary">Relectrice</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-6 border border-subtle rounded-xl">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-bold">DL</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Dev Luchmun</h4>
+<p class="font-caption text-caption text-secondary">Relecteur</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter border-t border-subtle pt-stack-md">
+<div class="bg-surface-container-lowest p-8 border border-subtle rounded-xl">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Mission de la revue</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">La RHN est une publication scientifique étudiante de l'Université de Maurice. Elle accueille des travaux articulant méthodes numériques et questionnements SHS, avec une attention particulière aux terrains de l'océan Indien et de l'espace francophone.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 border border-subtle rounded-xl">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4">Accès et licence</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Tous les contenus sont en libre accès intégral. Les auteur·e·s conservent leurs droits via une licence Creative Commons.</p>
+<div class="flex items-center gap-2 bg-surface p-3 rounded-lg border border-subtle self-start inline-flex">
+<span class="material-symbols-outlined text-secondary">copyright</span>
+<span class="font-label-md text-label-md text-on-surface-variant">CC BY 4.0 International</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: Soumettre -->
+<section class="content-section hidden max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg" id="soumettre">
+<div class="max-w-3xl mx-auto flex flex-col gap-stack-md">
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center">Appel à Contributions — Numéro 2</h2>
+<div class="bg-surface-container-lowest border border-subtle rounded-xl overflow-hidden shadow-sm">
+<div class="bg-tertiary p-8 text-on-tertiary text-center">
+<h3 class="font-headline-md text-headline-md">Participez au prochain numéro</h3>
+<p class="font-body-md opacity-90 mt-2">Nous acceptons les articles, posters et notes de recherche.</p>
+</div>
+<div class="p-8 space-y-6">
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface mb-2 uppercase tracking-wider">Thématiques</h4>
+<p class="font-body-md text-on-surface-variant">Édition numérique, cartographie, analyse de corpus, visualisation de données, patrimoine numérique, médiation culturelle, fabrication numérique.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 bg-surface rounded-lg border border-subtle">
+<h5 class="font-label-md text-label-md text-secondary mb-1">Article de recherche</h5>
+<p class="font-caption text-caption">3 000 – 8 000 mots</p>
+</div>
+<div class="p-4 bg-surface rounded-lg border border-subtle">
+<h5 class="font-label-md text-label-md text-secondary mb-1">Poster scientifique</h5>
+<p class="font-caption text-caption">Format A3, PDF Haute Résolution</p>
+</div>
+</div>
+<div class="border-t border-subtle pt-6">
+<h4 class="font-label-lg text-label-lg text-on-surface mb-2 uppercase tracking-wider">Processus de soumission</h4>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span>Soumissions par email uniquement.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span>Évaluation en double aveugle par deux membres du comité.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary">check_circle</span>
+<span>Réponse sous 3 semaines calendaires.</span>
+</li>
+</ul>
+</div>
+<div class="bg-secondary-container/30 p-6 rounded-lg text-center border border-secondary/20">
+<p class="font-label-lg text-label-lg text-on-secondary-container">Contact : revue-hn@universite-maurice.ac.mu</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-high border-t border-subtle dark:border-outline-variant py-stack-md">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto gap-stack-sm">
+<div class="flex flex-col items-center md:items-start gap-1">
+<span class="font-headline-md text-headline-md text-tertiary">RHN</span>
+<span class="font-caption text-caption text-on-surface-variant">© 2024 Revue en Humanités Numériques. Tous droits réservés.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-stack-md font-caption text-caption text-on-surface-variant">
+<a class="hover:text-link-hover underline" href="#">Mentions Légales</a>
+<a class="hover:text-link-hover underline" href="#">Politique de Confidentialité</a>
+<a class="hover:text-link-hover underline" href="#">Contact</a>
+<a class="hover:text-link-hover underline" href="#">Flux RSS</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-subtle px-margin-mobile py-2 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant transition-all mobile-btn" id="mob-accueil" onclick="navTo('accueil')">
+<span class="material-symbols-outlined">home</span>
+<span class="font-caption text-[10px]">Accueil</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant transition-all mobile-btn" id="mob-posters" onclick="navTo('posters')">
+<span class="material-symbols-outlined">article</span>
+<span class="font-caption text-[10px]">Posters</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant transition-all mobile-btn" id="mob-en-cours" onclick="navTo('en-cours')">
+<span class="material-symbols-outlined">pending</span>
+<span class="font-caption text-[10px]">En cours</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant transition-all mobile-btn" id="mob-comite" onclick="navTo('comite')">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-caption text-[10px]">Comité</span>
+</button>
+</nav>
+<script>
+        function navTo(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.add('hidden');
+                section.style.opacity = '0';
+            });
+
+            // Show target section
+            const target = document.getElementById(sectionId);
+            target.classList.remove('hidden');
+            setTimeout(() => {
+                target.style.opacity = '1';
+                target.style.transition = 'opacity 0.4s ease-in-out';
+            }, 50);
+
+            // Update Desktop Nav UI
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-secondary', 'border-b-2', 'border-secondary', 'pb-1');
+                link.classList.add('text-on-surface-variant');
+                if(link.getAttribute('data-nav') === sectionId) {
+                    link.classList.add('text-secondary', 'border-b-2', 'border-secondary', 'pb-1');
+                    link.classList.remove('text-on-surface-variant');
+                }
+            });
+
+            // Update Mobile Nav UI
+            document.querySelectorAll('.mobile-btn').forEach(btn => {
+                btn.classList.remove('text-secondary');
+                btn.classList.add('text-on-surface-variant');
+                if(btn.id === 'mob-' + sectionId) {
+                    btn.classList.add('text-secondary');
+                    btn.classList.remove('text-on-surface-variant');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize view
+        document.addEventListener('DOMContentLoaded', () => {
+            navTo('accueil');
+        });
+    </script>
+</body></html>
