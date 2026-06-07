@@ -136,17 +136,17 @@
 <header class="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-inverse-surface border-b border-subtle dark:border-outline-variant h-16">
 <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-full">
 <div class="flex items-center gap-4">
-<span class="font-display-lg text-headline-md font-bold text-tertiary">RHN</span>
+<img src="mainLogo.png" alt="RHN" class="h-10 w-auto"/>
 <span class="hidden lg:block font-label-lg text-label-lg text-on-surface-variant">Revue en Humanités Numériques</span>
 </div>
-<div class="hidden md:flex items-center gap-stack-md font-label-lg text-label-lg">
+<div class="hidden md:flex items-center gap-stack-md font-label-lg text-lg">
 <button class="nav-link text-secondary border-b-2 border-secondary pb-1 hover:text-secondary transition-colors transition-all active:opacity-80" data-nav="accueil" onclick="navTo('accueil')">Accueil</button>
 <button class="nav-link text-on-surface-variant hover:text-secondary transition-colors transition-all active:opacity-80" data-nav="posters" onclick="navTo('posters')">Posters</button>
 <button class="nav-link text-on-surface-variant hover:text-secondary transition-colors transition-all active:opacity-80" data-nav="en-cours" onclick="navTo('en-cours')">En cours</button>
 <button class="nav-link text-on-surface-variant hover:text-secondary transition-colors transition-all active:opacity-80" data-nav="comite" onclick="navTo('comite')">Comité</button>
 </div>
 <div class="flex items-center gap-4">
-<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-lg font-label-lg text-label-lg hover:opacity-90 transition-all active:scale-95 shadow-sm" onclick="navTo('soumettre')">Soumettre</button>
+<button class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full font-label-lg text-label-lg hover:opacity-90 transition-all active:scale-95 shadow-sm" onclick="navTo('soumettre')">Soumettre</button>
 </div>
 </nav>
 </header>
@@ -177,7 +177,8 @@
 </aside>
 <!-- Hero Content -->
 <div class="md:col-span-9 flex flex-col gap-stack-md">
-<div class="flex flex-col gap-stack-sm">
+<div class="flex flex-col md:flex-row items-center gap-stack-md">
+<div class="flex-1 flex flex-col gap-stack-sm">
 <div class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full self-start">
 <span class="material-symbols-outlined text-sm">bookmark</span>
 <span class="font-label-md text-label-md">Volume 1 · Numéro 1 · Juin 2026</span>
@@ -186,6 +187,8 @@
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
                             Une publication scientifique d'excellence dédiée à l'exploration des méthodes computationnelles appliquées aux sciences humaines et sociales. Un pont entre tradition académique et innovation technologique.
                         </p>
+</div>
+<img src="Literature-pana.png" alt="Illustration" class="w-full md:w-1/3 h-auto object-contain"/>
 </div>
 <!-- Stats Cards -->
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter mt-stack-md">
@@ -504,18 +507,10 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-surface-container dark:bg-surface-container-high border-t border-subtle dark:border-outline-variant py-stack-md">
-<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto gap-stack-sm">
-<div class="flex flex-col items-center md:items-start gap-1">
-<span class="font-headline-md text-headline-md text-tertiary">RHN</span>
-<span class="font-caption text-caption text-on-surface-variant">© 2024 Revue en Humanités Numériques. Tous droits réservés.</span>
-</div>
-<div class="flex flex-wrap justify-center gap-stack-md font-caption text-caption text-on-surface-variant">
-<a class="hover:text-link-hover underline" href="#">Mentions Légales</a>
-<a class="hover:text-link-hover underline" href="#">Politique de Confidentialité</a>
-<a class="hover:text-link-hover underline" href="#">Contact</a>
-<a class="hover:text-link-hover underline" href="#">Flux RSS</a>
-</div>
+<footer class="bg-[#006cb2] text-white border-t border-subtle py-stack-md">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto">
+<img src="footerLogo.png" alt="RHN" class="h-10 w-auto"/>
+<span class="font-caption text-caption">© 2026 Etudiants en Master Humanités Numériques-UDM.</span>
 </div>
 </footer>
 <!-- Mobile Navigation Bar -->
